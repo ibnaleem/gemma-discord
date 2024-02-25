@@ -12,7 +12,7 @@ https://discord.com/oauth2/authorize?client_id=1211309998454476851&permissions=0
 ```
 
 ## Privacy
-- Gemma (Discord bot) only stores your chats in random access memory (RAM) ([LX-LX]()).
+- Gemma (Discord bot) only stores your chats in random access memory (RAM) ([L40-43](https://github.com/ibnaleem/gemma-discord/blob/main/main.py#L40C15-L43C74)).
 
 ## Acknowledgements
 - [Google DeepMind](https://deepmind.google)
