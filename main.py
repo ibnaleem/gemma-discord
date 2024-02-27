@@ -21,33 +21,32 @@ async def on_ready() -> None:
             f"----- Gemma is Online -----\nServers: {len(client.guilds)}\nMembers: {len(client.users)}"
         )
 
-    except Exception:
-        print(Exception)
-
+    except Exception as e:
+        print(e)
 
 @client.event
 async def on_message(message):
     if message.author == client.user:
-        pass
+        return
     elif message.content.startswith("!"):
-        pass
+        return
     
     else:
         if isinstance(message.channel, discord.DMChannel):
             await message.channel.typing()
             num = 1
             while num != 0:
-              chat_log.append({"role": "user", "content": message.content})
-              chat_call = ollama.chat(model="gemma", messages=chat_log)
-              response = chat_call["message"]["content"]
-              chat_log.append({"role": "assistant", "content": response})
-                    
-              await message.channel.send(response)
-              num -= 1
-            if num == 0:
-              break
+                chat_log.append({"role": "user", "content": message.content})
+                chat_call = ollama.chat(model="gemma", messages=chat_log)
+                response = chat_call["message"]["content"]
+                chat_log.append({"role": "assistant", "content": response})
+                        
+                await message.channel.send(response)
+                num -= 1
+                if num == 0:
+                    break
         else:
-            pass
+            return
     
     await client.process_commands(message)
 
