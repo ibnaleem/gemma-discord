@@ -37,7 +37,7 @@ async def on_message(message):
             num = 1
             while num != 0:
                 chat_log.append({"role": "user", "content": message.content})
-                chat_call = ollama.chat(model="gemma", messages=chat_log)
+                chat_call = ollama.chat(model="gemma:7b", messages=chat_log)
                 response = chat_call["message"]["content"]
                 chat_log.append({"role": "assistant", "content": response})
                         
