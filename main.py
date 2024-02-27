@@ -3,7 +3,7 @@ from discord.ext import commands
 from discord import Intents
 from discord.ui import Button, View
 
-GEMMA_TOKEN = os.environ["MIKAEL_TOKEN"]
+GEMMA_TOKEN = os.environ["GEMMA_TOKEN"]
 
 intents = Intents.all()
 chat_log = []
